@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WorkEase - Coming Soon</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #0f172a, #1e293b, #0ea5e9, #020617);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: #fff;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.card {
+    text-align: center;
+    padding: 40px;
+    width: 350px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.highlight {
+    color: #38bdf8;
+}
+
+h2 {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 14px;
+    color: #cbd5f5;
+}
+
+.timer {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.timer div {
+    text-align: center;
+}
+
+.timer span {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 15px;
+    outline: none;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #38bdf8;
+    color: #0f172a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1><span class="highlight">WorkEase</span></h1>
+    <h2>Make Work Effortless</h2>
+
+    <p>We are building a smarter way to manage your business operations.</p>
+
+    <!-- ⏳ TIMER -->
+    <div class="timer">
+        <div><span id="d">00</span>Days</div>
+        <div><span id="h">00</span>Hrs</div>
+        <div><span id="m">00</span>Min</div>
+        <div><span id="s">00</span>Sec</div>
+    </div>
+
+    <p><strong>Coming Soon 🚀</strong></p>
+
+    <!-- 📩 EMAIL INPUT -->
+    <input type="email" placeholder="Enter your email">
+    <button>Notify Me</button>
+
+    <p>📩 hello@getworkease.com</p>
+    <p>🌐 www.getworkease.com</p>
+
+    <div class="footer">
+        Introducing by <strong>Hastron Ventures</strong>
+    </div>
+</div>
+
+<script>
+const launchDate = new Date("2026-06-01").getTime();
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = launchDate - now;
+
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const s = Math.floor((diff % (1000*60)) / 1000);
+
+    document.getElementById("d").innerText = d;
+    document.getElementById("h").innerText = h;
+    document.getElementById("m").innerText = m;
+    document.getElementById("s").innerText = s;
+}, 1000);
+</script>
+
+</body>
+</html>
